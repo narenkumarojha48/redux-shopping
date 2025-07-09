@@ -1,4 +1,4 @@
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -26,6 +26,9 @@ const ProductListItem = ({product}) => {
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }}>
             {product.description.slice(1, 100)}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div">
+            ${product.price}
           </Typography>
         </CardContent>
         <CardActions>

@@ -1,17 +1,20 @@
-import { useState } from 'react';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-import Stack from '@mui/material/Stack';
-import { addToCart,removeFromCart,incrementQuantity,decrementQuantity } from '../redux/cartSlice';
-import { useDispatch,useSelector } from "react-redux";
+import { useState } from "react";
 
-const CartItem = ({cart}) => {
-    const[quantity,setQuantity] = useState(1);
-    const dispatch = useDispatch();
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+import {
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../redux/cartSlice";
+import { useDispatch } from "react-redux";
+
+const CartItem = ({ cart }) => {
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
   return (
-    <div className='cartitem'>
-     
+    <div className="cartitem">
       <div>
         <img src={cart.image} alt="cart images" width={50} height={50} />
       </div>
@@ -22,8 +25,12 @@ const CartItem = ({cart}) => {
           variant="contained"
           size="small"
           onClick={() => {
-            setQuantity((prev) => Number(prev) - 1);
-            dispatch(decrementQuantity(cart.id))
+            let qty = quantity - 1;
+            if (qty >= 1) {
+              setQuantity(qty);
+              dispatch(decrementQuantity({ id: cart.id, qty: qty }));
+            }
+            // setQuantity((prev) => Number(prev) - 1);
           }}
         >
           -
@@ -33,31 +40,35 @@ const CartItem = ({cart}) => {
           name="quantity"
           value={quantity}
           onChange={(e) => {
-             setQuantity(e.target.value);
-            
+            setQuantity(e.target.value);
           }}
         />
         <IconButton
           variant="contained"
           size="small"
           onClick={() => {
-            setQuantity((prev) => Number(prev) + 1);
-            dispatch(incrementQuantity(cart.id))
+            let qty = quantity + 1;
+            if (qty <= 5) {
+              setQuantity(qty);
+              // setQuantity((prev) => Number(prev) + 1);
+              dispatch(incrementQuantity({ id: cart.id, qty: qty }));
+            }
+            return;
           }}
         >
           +
         </IconButton>
-         <div>
-       
+        <div></div>
       </div>
-      </div>
-       <IconButton aria-label="delete" 
-       onClick={()=>dispatch(removeFromCart(cart.id))}
-       size="large">
-          <DeleteIcon fontSize="inherit" />
-        </IconButton>
+      <IconButton
+        aria-label="delete"
+        onClick={() => dispatch(removeFromCart(cart.id))}
+        size="large"
+      >
+        <DeleteIcon fontSize="inherit" />
+      </IconButton>
     </div>
   );
-}
+};
 
-export default CartItem
+export default CartItem;

@@ -1,19 +1,16 @@
-import React from 'react'
-import Cart from './Cart'
-import  PaymentForm  from'./PaymentForm';
+import Cart from "./Cart";
+import PaymentForm from "./PaymentForm";
 const Payment = () => {
   return (
-    <div className='paymentcontainer'>
+    <div className="paymentcontainer">
       <section>
-        <Cart/>
+        <Cart />
       </section>
-      <section>
-        <PaymentForm/>
+      <section className="paymentFormContainer">
+        <PaymentForm />
       </section>
-      
-      
     </div>
-  )
-}
+  );
+};
 
-export default Payment
+export default Payment;

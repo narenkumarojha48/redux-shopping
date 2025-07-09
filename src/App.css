@@ -22,13 +22,13 @@
     border: 1px solid black;
     margin-left: 25%;
     margin-bottom: 50px;
-    background-color: rgba(0, 0, 0, .12);
     height: 300px;
     overflow-y: scroll;
 }
 .carttotal{
     display: flex;
     gap:10px;
+    margin-top:2rem ;
     justify-content: center;
 }
 .cartheading{
@@ -56,5 +56,18 @@
 }
 .paymentcontainer{
     /* height: 200px; */
-    border: 1px solid red;
+    
+}
+.creditform{
+    width: 20rem;
+    border: 1px solid black;
+    padding: 2rem;
+}
+.paymentFormContainer{
+   width: 50%;
+   margin-left: 25%;
+}
+.paymentsubmit{
+    margin-top: 2rem;
+    text-align: center;
 }
