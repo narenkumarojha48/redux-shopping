@@ -1,0 +1,60 @@
+
+.navcontainer{
+ background-color:rgb(43, 43, 46);
+ padding: 20px;
+}
+.navcontainer  a{
+    margin: 20px;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+.navcontainer  a.active{
+    
+    color: blue;
+}
+.ProductList{
+    
+}
+.cartcontainer{
+    /* position: fixed; */
+    width: 50%;
+    border: 1px solid black;
+    margin-left: 25%;
+    margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, .12);
+    height: 300px;
+    overflow-y: scroll;
+}
+.carttotal{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+}
+.cartheading{
+    text-align: center;
+}
+.cartitem{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: space-evenly;
+    grid-gap: 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+
+}
+.quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    input{
+      width: 34px;  
+      border: none;
+      text-align: center;
+    }
+   
+}
+.paymentcontainer{
+    /* height: 200px; */
+    border: 1px solid red;
+}
